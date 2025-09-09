@@ -1,5 +1,6 @@
 package jpabook.jpashop.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
@@ -24,5 +25,6 @@ public class Member {
 
     // mappedBy를 통해서 "나는 매핑을 하는 애가 아니고, 저거(member)에서 맵핑된 거울일 뿐이다"를 나타냄
     @OneToMany(mappedBy = "member")
+    @JsonIgnore
     private List<Order> orders = new ArrayList<>();
 }
